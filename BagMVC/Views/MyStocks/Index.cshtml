@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BagLib.Models.MyStock>
+
+@{
+    ViewData["Title"] = "My Stocks";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Search" class="btn btn-primary">Search to add</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuyPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuyDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BagUser)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuyPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock.StockId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BagUser.BagUserId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MyStockId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MyStockId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MyStockId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

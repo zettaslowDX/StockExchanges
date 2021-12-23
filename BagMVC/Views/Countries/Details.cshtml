@@ -1,0 +1,53 @@
+﻿@model BagLib.Models.Country
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Country</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Currencies)
+        </dt>
+        <dd class = "col-sm-10">
+            @*@Html.DisplayFor(model => model.CurrencyType)*@
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(m => m.Currencies.FirstOrDefault().Symbol)</th>
+                        <th>@Html.DisplayNameFor(m => m.Currencies.FirstOrDefault().Code)</th>
+                        <th>@Html.DisplayNameFor(m => m.Currencies.FirstOrDefault().Name)</th>
+                    </tr>
+                </thead>
+                <tbody>
+            @foreach (var c in Model.Currencies)
+            {
+                   <tr>
+                        <td class="coin">@Html.DisplayFor(m => c.Symbol)   </td>
+                        <td> @Html.DisplayFor(m => c.Code) </td>
+                        <td>@Html.DisplayFor(m => c.Name) </td>
+                    </tr>                       
+            }
+ 
+                </tbody>
+            </table>
+
+
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-action="Index">Back to List</a>
+</div>

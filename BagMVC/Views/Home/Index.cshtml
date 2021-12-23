@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles
+{
+    <style>
+        h1 {
+            color: #00FF00;
+        }
+    </style>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div>
+        <button class="btn btn-primary btn-lg">Púlsame</button>
+        <button class="btn btn-secondary">Despídete</button>
+        <button id="button-destroy" class="btn btn-danger">Destruye la humanidad</button>
+    </div>
+    <div>
+        <h3>Prueba de localizar un elemento con this</h3>
+        <button class="btn btn-light">Primer botón</button>
+        <button class="btn btn-light">Botón nº 2</button>
+        <button class="btn btn-light">Button third</button>
+    </div>
+
+    <div id="my-message" class="alert alert-warning">
+        Mi mensaje aquí
+    </div>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@section Scripts
+{
+<script>
+    //alert("Hola mundo");
+
+    function saludar()
+    {
+        alert("Mundo, saludos");
+
+        $("#my-message").hide();
+    }
+
+    function destroy()
+    {
+        //alert("Humanidad destraida");
+
+        // text() devuelve el contenido en texto de una selección
+        //alert( $("#my-message").text() );
+
+        // Sólo texto
+        //$("#my-message").text("Despediros");
+        // Me pone las etiquetas de forma literal
+        //$("#my-message").text("<h2>Despediros</h2>");
+
+        $("#my-message").html("<h2>Despediros</h2>");
+
+        $("#my-message").show();
+    }
+
+    function queBoton() {
+        console.log("...lamada a queBoton");
+
+        console.log( $(this) );
+
+        console.log("El botón pulsado es", $(this).text() );
+    }
+
+    function inicializar()
+    {
+        // Asigna la función saludar al click de todos los elementos button
+        //$("button").click(saludar);
+
+        $(".btn-primary").click(saludar);
+
+        $("#button-destroy").click(destroy);
+
+        $(".btn-light").click(queBoton);
+    }
+
+    //saludar();
+
+    // Dos dormas de esperar a que se haya cargado el documento
+    //$().ready(saludar);
+
+    //$(document).ready(saludar);
+
+    $().ready(inicializar);
+
+</script>
+}

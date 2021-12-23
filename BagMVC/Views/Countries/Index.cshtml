@@ -1,0 +1,150 @@
+﻿@model IEnumerable<BagLib.Models.Country>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+
+<div class="row">
+    <div class="col-6">
+        <input id="my-locate" type="text" />
+        <button id="bt-locate" class="btn btn-primary">Buscar</button>
+        <button id="bt-reset" class="btn btn-dark">Resetear</button>
+        <button id="bt-another" class="btn btn-dark">Función anónima</button>
+    </div>
+    <div class="col-6">
+        <p>
+            @*<a asp-action="Create">Create New</a>*@
+            <a asp-action="Update">Actualizar desde API</a>
+        </p>
+    </div>
+</div>
+<div id="my-message" class="alert alert-warning">
+    Introduce un texto válido, por favor
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th colspan="2">
+                @Html.DisplayNameFor(model => model.Currencies)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="@item.Name.ToLower()">
+            <td>
+                <span>
+                    <a asp-controller="Countries" asp-action="Details" asp-route-id="@item.CountryId" >@Html.DisplayFor(modelItem => item.Name)</a> 
+                </span>                
+            </td>
+            <td class="coin">
+                @*@Html.DisplayFor(modelItem => item.CurrencyType)*@
+                @foreach (var c in item.Currencies)
+                {
+                    @Html.DisplayFor(m => c.Symbol)                        
+                }
+               
+            </td>
+            <td>
+                (@item.Currencies.Count)
+            </td>
+            <td>
+            @*    <a asp-action="Edit" asp-route-id="@item.CountryId">Edit</a> |*@
+                <a asp-action="Details" asp-route-id="@item.CountryId">Details</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts
+{
+<script>
+
+    function searchCutre() {
+        console.log("Buscando cutremente...");
+
+        $("tr").hide();
+
+        var text = $("#my-locate").val().toLowerCase().trim();
+
+        console.log("el texto a buscar es: ", text);
+
+        //if ( text=="" ) {
+        if ( text==="" ) {
+            $("#my-message").show();
+        }
+        else {
+            $("#my-message").hide();
+
+            $("." + text ).show();
+        }
+    }
+
+    function searchMenosCutre() {
+
+        var text = $("#my-locate").val().toLowerCase().trim();
+
+        $("table tbody tr").each( function() {
+
+            // Escribo el texto de cada elemento de la colección: de cada fila
+            //console.log( $(this).text() );
+
+            //console.log( $(this).text().toLowerCase().indexOf(text) );
+
+            if ( $(this).text().toLowerCase().indexOf(text) > -1 ) {
+                $(this).show();
+            }
+            else {
+                $(this).hide();
+            }
+
+        } );
+    }
+
+    function resetCountries() {
+
+        $("tr").show();
+    }
+
+    function initialize() {
+        //alert("cargando");
+        // Antes buscaba de forma cutre
+        //$("#bt-locate").click(searchCutre);
+
+        // Ahora buscamos mejor
+        $("#bt-locate").click(searchMenosCutre);
+
+        $("#bt-reset").click(resetCountries);
+
+        $("#bt-another").click( function () {
+            console.log("Esto es una función anónima");
+
+            var unNumero = 8;
+
+            if ( unNumero=="8") {
+                console.log("Funciona con == comprar un entero y un string");
+            }
+
+            if ( unNumero==="8") {
+                console.log("¿Funciona con === comprar un entero y un string?");
+            }
+
+            if ( unNumero === parseInt("8")) {
+                console.log("Funciona con === comprar un entero y un string sólo cuándo coinciden los tipos");
+            }
+        } );
+    }
+
+    $().ready(initialize);
+</script>
+}
