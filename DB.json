@@ -1,0 +1,180 @@
+{
+    "Countries": [
+        {
+            "CountryId": 1,
+            "Name": "Afghanistan"
+        },
+        {
+            "CountryId": 2,
+            "Name": "Åland Islands"
+        },
+        {
+            "CountryId": 6,
+            "Name": "Andorra"
+        },
+        {
+            "CountryId": 15,
+            "Name": "Austria"
+        },
+        {
+            "CountryId": 22,
+            "Name": "Belgium"
+        },
+        {
+            "CountryId": 61,
+            "Name": "Cyprus"
+        },
+        {
+            "CountryId": 72,
+            "Name": "Estonia"
+        },
+        {
+            "CountryId": 77,
+            "Name": "Finland"
+        },
+        {
+            "CountryId": 78,
+            "Name": "France"
+        },
+        {
+            "CountryId": 79,
+            "Name": "French Guiana"
+        }
+    ],
+    "Currencies": [
+        {
+            "CurrencyId": 1,
+            "Name": "Afghan afghani",
+            "Symbol": "؋",
+            "Code": "AFN"
+        },
+        {
+            "CurrencyId": 2,
+            "Name": "Euro",
+            "Symbol": "€",
+            "Code": "EUR"
+        }
+    ],
+    "CountryCurrency":[
+        {
+            "CountryId": 1,
+            "Name": "Afghanistan",
+            "Currencies": [
+                {
+                    "CurrencyId": 1,
+                    "Name": "Afghan afghani",
+                    "Symbol": "؋",
+                    "Code": "AFN"
+                }
+            ]
+        },
+        {
+            "CountryId": 2,
+            "Name": "Åland Islands",
+            "Currencies": [
+                {
+                    "CurrencyId": 2,
+                    "Name": "Euro",
+                    "Symbol": "€",
+                    "Code": "EUR"
+                }
+            ]
+        },
+        {
+            "CountryId": 6,
+            "Name": "Andorra",
+            "Currencies": [
+                {
+                    "CurrencyId": 2,
+                    "Name": "Euro",
+                    "Symbol": "€",
+                    "Code": "EUR"
+                }
+            ]
+        },
+        {
+            "CountryId": 15,
+            "Name": "Austria",
+            "Currencies": [
+                {
+                    "CurrencyId": 2,
+                    "Name": "Euro",
+                    "Symbol": "€",
+                    "Code": "EUR"
+                }
+            ]
+        },
+        {
+            "CountryId": 22,
+            "Name": "Belgium",
+            "Currencies": [
+                {
+                    "CurrencyId": 2,
+                    "Name": "Euro",
+                    "Symbol": "€",
+                    "Code": "EUR"
+                }
+            ]
+        },
+        {
+            "CountryId": 61,
+            "Name": "Cyprus",
+            "Currencies": [
+                {
+                    "CurrencyId": 2,
+                    "Name": "Euro",
+                    "Symbol": "€",
+                    "Code": "EUR"
+                }
+            ]
+        },
+        {
+            "CountryId": 72,
+            "Name": "Estonia",
+            "Currencies": [
+                {
+                    "CurrencyId": 2,
+                    "Name": "Euro",
+                    "Symbol": "€",
+                    "Code": "EUR"
+                }
+            ]
+        },
+        {
+            "CountryId": 77,
+            "Name": "Finland",
+            "Currencies": [
+                {
+                    "CurrencyId": 2,
+                    "Name": "Euro",
+                    "Symbol": "€",
+                    "Code": "EUR"
+                }
+            ]
+        },
+        {
+            "CountryId": 78,
+            "Name": "France",
+            "Currencies": [
+                {
+                    "CurrencyId": 2,
+                    "Name": "Euro",
+                    "Symbol": "€",
+                    "Code": "EUR"
+                }
+            ]
+        },
+        {
+            "CountryId": 79,
+            "Name": "French Guiana",
+            "Currencies": [
+                {
+                    "CurrencyId": 2,
+                    "Name": "Euro",
+                    "Symbol": "€",
+                    "Code": "EUR"
+                }
+            ]
+        }
+    ]
+}
